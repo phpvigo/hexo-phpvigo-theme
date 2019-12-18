@@ -11,7 +11,9 @@ const vmUpcoming = new Vue({
   render: h => h(UpcomingEventsApp)
 }).$mount('#upcoming-events')
 
-axios.get('http://localhost:4000/phpvigo.json').then((data) => {
+
+const base = window.location.protocol + "//" + window.location.host
+axios.get(`${base}/phpvigo.json`).then((data) => {
   vmUpcoming.nextEvents = data.data.nextEvents.filter(event => {
     return moment(event.date) >= new Date()
   })
