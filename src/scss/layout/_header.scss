@@ -10,6 +10,7 @@ $height-in-top: 45px;
   z-index: 999;
   padding: 0;
   min-height: $height-in-top;
+  transition: all .2s ease-in-out;
 
   &:after {
     content: ' ';
@@ -36,6 +37,13 @@ $height-in-top: 45px;
     padding: 9px 15px 0 0;
     font-size: 25px;
     cursor:pointer;
+
+    span {
+      padding-left: 10px;
+      font-size: 15px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
   }
 
   #logo {
@@ -111,7 +119,7 @@ $height-in-top: 45px;
       text-decoration: none;
       font-size: 18px;
       color: $black;
-      @include transition(all, .2s);
+      transition: all .2s ease-in-out;
 
       &:hover {
         text-decoration: none;
@@ -140,7 +148,25 @@ $height-in-top: 45px;
 
     #mobile-menu-toggle {
       padding: 0 15px 0 0;
+      span {
+        display: none;
+      }
     }
 
+  }
+}
+
+.body-front-page {
+  #header.in-top {
+    background: rgba($white, 0);
+    .social, nav {
+      a {
+        color: $white;
+      }
+    }
+
+    #mobile-menu-toggle {
+      color: $white;
+    }
   }
 }

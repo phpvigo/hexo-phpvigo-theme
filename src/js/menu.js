@@ -9,7 +9,7 @@ export default function() {
 
 
     $('#mobile-menu-toggle').click(() => toggleMenu())
-    $('#mobile-menu-toggle .cover').click(() => closeMenu())
+    $('#mobile-menu .cover').click(() => closeMenu())
 
 
     function closeMenu() {
@@ -25,7 +25,13 @@ export default function() {
     }
 
     function checkInTop() {
-      window.scrollY > 0 || !$('body').hasClass('body-front-page') ? $('#header').addClass('not-in-top') : $('#header').removeClass('not-in-top')
+      if (window.scrollY > 0 || !$('body').hasClass('body-front-page')) {
+        $('#header').addClass('not-in-top')
+        $('#header').removeClass('in-top')
+      } else {
+        $('#header').removeClass('not-in-top')
+        $('#header').addClass('in-top')
+      }
     }
   })
 }
